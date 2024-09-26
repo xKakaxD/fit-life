@@ -1,5 +1,7 @@
+/* Imports gerais necessarios do estilo*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Reset.css */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +14,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+/* Header.css */
 .logo a {
     font-size: 30px;
     font-weight: bold;
@@ -22,22 +25,10 @@ body {
     background: #ff6600;
 }
 
-.container {
-    max-width: 1500px;
+.container-header {
+    max-width: 100%; /*1500px alterado para responsividade*/
     padding: 0 2%;
     margin: 0 auto;
-}
-
-section footer {
-    padding: 2.7rem 0;
-}
-
-.btn-gradiente {
-    padding: 10px 25px;
-    color: black;
-    border: none;
-    cursor: pointer;
-    border-radius: 10%;
 }
 
 nav {
@@ -47,7 +38,7 @@ nav {
     padding: 20px 0;
 }
 
-.ul {
+.ul-header {
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -56,27 +47,16 @@ nav {
     align-items: center;    
 }
 
-.ul li {
+.ul-header li {
     margin: 0 35px;
     font-size: 15px;
 }
 
-ul li a{
+.ul-header li a{
     color: black;
 }
 
-.btn-entrar {
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.btn-entrar:hover {
-    background-color: transparent;
-}
-
+/*Layouts de estilo*/
 .image-container {
     width: 100%;
     overflow: hidden;
@@ -90,12 +70,16 @@ ul li a{
     object-fit: cover;
 }
 
-.menu-icon {
-    display: none;
-    position: relative;
-    z-index: 10;
+.trainer img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #ddd;
 }
 
+/* Sections.css */
 .resultados {
     background: white; /*cor de fundo container*/
     padding: 40px 0;
@@ -105,13 +89,6 @@ ul li a{
     justify-content: center;
 }
 
-.titulo {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    color: black;
-}
 
 .resultados .container {
     width: 100%;
@@ -150,6 +127,14 @@ ul li a{
     margin: 0;
     font-size: 16px;
     max-width: 300px;
+    color: black;
+}
+
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
     color: black;
 }
 
@@ -198,6 +183,7 @@ ul li a{
     text-align: center;
     margin-bottom: 20px;
 }
+
 
 .opcoes {
     width: 30%; /* Tamanho da coluna da esquerda */
@@ -252,7 +238,7 @@ ul li a{
     to { opacity: 1; }
 }
 
-/* Estilos para os planos */
+/* Estilos para os planos da tela inicial*/
 .plano-conteudo h2 {
     color: #ff6600;
 }
@@ -312,6 +298,7 @@ ul li a{
     top: 50%; /* Alinha o preço verticalmente no meio */
     transform: translateY(-50%); /* Corrige o alinhamento vertical para o centro */
 }
+/* Final dos estilos para os planos*/
 
 .trainers-section {
     background-color: #fff;
@@ -334,15 +321,6 @@ ul li a{
 .trainer {
     width: 200px;
     text-align: center;
-}
-
-.trainer img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #ddd;
 }
 
 .trainer h3 {
@@ -432,12 +410,14 @@ ul li a{
     background-color: #ffd699;
 }
 
-.resultado {
+.resultado-imc {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
+
+/*Footer*/
 
 footer {
     background-color: #ff6600;
