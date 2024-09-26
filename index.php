@@ -17,7 +17,6 @@
         <img src="img/imginicial.jpg" alt="pesos">
     </div>
     
-    
     <section class="resultados">
         <h2 class="titulo">O verdadeiro treino começa quando você quer parar!</h2>
         <div class="container">
