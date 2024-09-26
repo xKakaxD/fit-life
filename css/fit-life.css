@@ -79,7 +79,8 @@ nav {
     border: 3px solid #ddd;
 }
 
-/* Sections.css */
+/*Sections.css*/
+    /*Index.php*/
 .resultados {
     background: white; /*cor de fundo container*/
     padding: 40px 0;
@@ -416,6 +417,7 @@ nav {
     font-weight: bold;
     text-align: center;
 }
+    /*Index.php*/
 
 /*Footer*/
 
@@ -435,3 +437,5 @@ footer p {
     margin: 0;
     font-size: 14px;
 }
+
+/*Final das Sections.css*/
