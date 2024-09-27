@@ -17,10 +17,10 @@
         <img src="img/imginicial.jpg" alt="pesos">
     </div>
     
-    <section class="resultados">
+    <section class="resultados-index">
         <h2 class="titulo">O verdadeiro treino começa quando você quer parar!</h2>
         <div class="container">
-            <dv class="resultados-recursos">
+            <dv class="resultados-index-recursos">
                 <div class="recurso">
                     <div class="icone">
                         <img src="img/icon-peso.png" alt="peso">
