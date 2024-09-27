@@ -601,6 +601,94 @@
     }
 
 /*Final estilos Quem somos*/
+/*Contato.php*/
+    .contato {
+        padding: 60px 0;
+        background-color: #fff;
+    }
+
+    .contato .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contato-texto {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .contato-texto h2 {
+        color: black;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+
+    .contato-texto p {
+        font-size: 15px;
+        color: #555;
+    }
+
+
+    .formulario-contato {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group input[type="radio"] {
+        display: inline-block;
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .form-group textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .btn-enviar-contato {
+        background-color: #ff6600;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-enviar-contato:hover {
+        background-color: #58ACFA;
+    }
+
+/*Final estilos Quem somos*/
 /*Footer*/
 
 footer {
