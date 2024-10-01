@@ -3,31 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastaluno.css">
+    <link rel="stylesheet" href="css/fit-life.css">
     <title> Cadastro Aluno </title>
 </head>
 <body>
 
-    <div class="background-menu">
-        <header>
-            <div class="container">
-                <nav>
-                    <div class="logo">
-                        <a href="index.html">FITLIFE</a> 
-                    </div>
-                    <ul class="ul">
-                        <li> <a href="index.html">Inicio</a></li>
-                        <li> <a href="quemsomos.html">Sobre nós</a></li>
-                        <li> <a href="contato.html">Contato</a></li>
-                        <li> <a href="logincadast.html"> <img src="img/icon-pessoa.png" alt="conectar" class="icon-conectar"></a></li>  
-                   </ul>
-                    <div class="menu-icon">
-                        <img src="img/menu-icon.png" alt="icon menu">
-                    </div>
-                </nav>
-            </div>
-        </header>
-    </div>
+    <header>
+    <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html"?>
+    </header>
     
     <div class="form-container">
         <form id="aluno-cadastro">
@@ -157,7 +140,9 @@
             
 </main>
 
-
+<footer>
+<?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
+</footer>
 </body>
 </html>
 
