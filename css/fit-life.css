@@ -1127,6 +1127,64 @@
     .form-container button:hover {
         background-color: #ff6600;
     }
+/*Final do estilo relacionado as telas de cadastro*/
+/*Estilos para Perfil-Aluno.php*/
+    .perfil-aluno {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .abas {
+        width: 20%;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-right: 1px solid #ccc;
+        height: 100vh;
+    }
+    
+    .abas ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .abas li {
+        margin-bottom: 20px;
+    }
+    
+    .abas a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .abas a:hover {
+        color: #23527c;
+    }
+    
+    .abas .aba-selected {
+        background-color: transparent;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .conteudo-abas {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .conteudo-abas > div {
+        display: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .conteudo-abas > div:target {
+        display: block;
+    }
+/*Final dos estilos para o perfil do aluno*/
 /*Footer*/
 
 footer {
