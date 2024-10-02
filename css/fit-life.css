@@ -35,7 +35,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .ul-header {
@@ -1205,3 +1207,112 @@ footer p {
 }
 
 /*Final das Sections.css*/
+
+/*Responsividade*/
+
+/*Header*/
+@media only screen and (max-width: 768px) {
+    .container-header {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Empilha itens */
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .ul-header {
+        flex-direction: column; /* Empilha os itens do menu */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .ul-header li {
+        margin: 10px 0; /* Espaçamento entre os itens */
+    }
+
+    .ul-header li a {
+        font-size: 1.2em; /* Tamanho ajustado do texto para mobile */
+        color: black;
+    }
+
+    .menu-icon img {
+        width: 30px; /* Tamanho do ícone do menu */
+    }
+}
+
+/*Resultados*/
+@media only screen and (max-width: 768px) {
+    .resultados-index {
+        text-align: center; /* Centraliza o título */
+        padding: 20px 0; /* Espaço acima e abaixo */
+        display: block;
+    }
+
+    .titulo {
+        font-size: 1.5em; /* Tamanho do título */
+    }
+
+    .resultados-index-recursos {
+        display: flex;
+        overflow-x: auto; /* Permite rolagem horizontal */
+        padding: 10px 0;
+        width: 100%; /* Ocupará toda a largura da tela */
+        box-sizing: border-box; /* Inclui padding na largura */
+    }
+
+    .recurso {
+        flex: 0 0 auto; /* Cada recurso ocupará seu espaço sem esticar */
+        width: 80%; /* Ajuste para que seja mais gerenciável */
+        max-width: 90%; /* Limita a largura máxima para caber bem em telas pequenas */
+        margin-right: 10px; /* Espaço entre os recursos */
+        box-sizing: border-box; /* Inclui padding e margens na largura */
+    }
+
+    .icone img {
+        width: 100%; /* Ajusta a imagem ao tamanho do recurso */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 5px; /* Bordas arredondadas */
+    }
+
+    .icone p {
+        text-align: center; /* Centraliza o texto da descrição */
+        font-size: 1em; /* Ajuste do tamanho da fonte */
+    }
+}
+
+/*Planos*/
+@media only screen and (max-width: 768px) {
+    .container-planos {
+        display: flex;
+        flex-direction: column; /* Itens empilhados verticalmente */
+        align-items: center;
+        width: 100%; /* Ocupará toda a largura */
+        box-sizing: border-box; /* Inclui padding na largura */
+    }
+
+    .plano {
+        width: 100%; /* Cada plano ocupa toda a largura */
+        margin-bottom: 20px;
+        padding: 10px; /* Adiciona padding para os planos */
+        box-sizing: border-box; /* Inclui padding na largura */
+    }
+
+    .plano h3 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .preco {
+        font-size: 1.5em;
+        text-align: center;
+    }
+}
+
