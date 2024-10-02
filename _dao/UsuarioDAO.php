@@ -47,16 +47,16 @@ class UsuarioDAO {
         $sql = "UPDATE Usuario SET nome = ?, email = ?, senha = ?, sexo = ?, dt_nascimento = ?, nacionalidade = ?, endereco = ?, tipo_usuario = ?, foto = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "sssssssssi", 
-            $usuario->setNome(), 
-            $usuario->setEmail(), 
-            $usuario->setSenha(), 
-            $usuario->setSexo(), 
-            $usuario->setDtNascimento(), 
-            $usuario->setNacionalidade(), 
-            $usuario->setEndereco(), 
-            $usuario->setTipoUsuario(), 
-            $usuario->setFoto(),
-            $usuario->getId()
+        $usuario->getNome(),        //Getters são usados dentro do método update para acessar esses valores e salvá-los no banco
+        $usuario->getEmail(),       
+        $usuario->getSenha(),       
+        $usuario->getSexo(),        
+        $usuario->getDtNascimento(),
+        $usuario->getNacionalidade(),
+        $usuario->getEndereco(),     
+        $usuario->getTipoUsuario(),  
+        $usuario->getFoto(),        
+        $usuario->getId()           
         );
         return mysqli_stmt_execute($stmt);
     }
