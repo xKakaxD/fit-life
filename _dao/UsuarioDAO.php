@@ -43,6 +43,16 @@ class UsuarioDAO {
         return mysqli_fetch_assoc($resultado);
     }
 
+    public function buscarPorEmail($email) {
+        $sql = "SELECT * FROM Usuarios WHERE email = ?";
+        $stmt = mysqli_prepare($this->conexao, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_assoc($resultado);
+    }
+    
+
     public function atualizar($usuario) {
         $sql = "UPDATE Usuario SET nome = ?, email = ?, senha = ?, sexo = ?, dt_nascimento = ?, nacionalidade = ?, endereco = ?, tipo_usuario = ?, foto = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);

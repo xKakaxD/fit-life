@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
+    header("Location: login-cadastro.php"); // Redireciona para login se não for cliente
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +17,7 @@
 <body>
 
     <header>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html"?>
+        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header-logado.php"?>
     </header>
 
     <main>

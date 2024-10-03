@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['erro_login'])) {
+    echo "<p style='color:red'>" . $_SESSION['erro_login'] . "</p>";
+    unset($_SESSION['erro_login']); // Limpa a mensagem após exibir
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -70,17 +78,17 @@
                 </ul>
             </div><!-- SOCIAL-MIDIA -->
             <p class="description description-second">Conectar-se com seu email</p>
-            <form class="form">
-                <label class="label-input icon-modify" for="">
+            <form class="form" action="_dao/ProcessaLogin.php" method="POST">
+                <label class="label-input icon-modify" for="email">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email" required>
                 </label>
-                <label class="label-input icon-modify" for="">
+                <label class="label-input icon-modify" for="senha">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Senha">
+                    <input type="password" name="senha" placeholder="Senha" required>
                 </label>
                 <a class="password" href="#">Esqueceu a senha?</a>
-                <button class="btn-login-cadastro btn-second">Entrar</button>
+                <button class="btn-login-cadastro btn-second" type="submit">Entrar</button>
             </form>
         </div><!-- SECOND-COLUMN -->
 
