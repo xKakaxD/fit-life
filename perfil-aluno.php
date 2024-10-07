@@ -122,5 +122,5 @@ if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
     </main>
 
     <footer>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html"?>
+        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
     </footer>
