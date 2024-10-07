@@ -1136,7 +1136,7 @@
     }
 /*Final do estilo relacionado as telas de cadastro*/
 /*Estilos para Perfil-Aluno.php*/
-    .perfil-aluno {
+    .conteudo-logado {
         display: flex;
         flex-direction: row;
     }

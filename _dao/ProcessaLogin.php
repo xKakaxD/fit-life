@@ -20,15 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id_usuario'] = $usuario['id'];
         $_SESSION['nome_usuario'] = $usuario['nome'];
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario']; // Admin, Treinador, Cliente
-
-        // Redireciona com base no tipo de usuário
-        if ($usuario['tipo_usuario'] === 'Cliente') {
-            header("Location: ../perfil-aluno.php");
-        } elseif ($usuario['tipo_usuario'] === 'Treinador') {
-            header("Location: ../pagina_personal.php");
-        } elseif ($usuario['tipo_usuario'] === 'Admin') {
-            header("Location: ../painel_admin.php");
-        }
+    
+        // Redireciona todos os usuários para perfil-management.php
+        header("Location: ../perfil-management.php");
         exit;
     } else {
         // Falha no login
@@ -36,5 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../login-cadastro.php");
         exit;
     }
+    
 }
 ?>
