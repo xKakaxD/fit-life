@@ -53,7 +53,7 @@
                 <div class="container-planos">
                     <!-- Coluna da esquerda com as opções -->
                     <div class="opcoes">
-                        <button class="tablink" onclick="openPlan(event, 'Aluno')">ALUNO</button>
+                        <button class="tablink active" onclick="openPlan(event, 'Aluno')">ALUNO</button>
                         <button class="tablink" onclick="openPlan(event, 'PersonalTrainer')">PERSONAL TRAINER</button>
                     </div>
         

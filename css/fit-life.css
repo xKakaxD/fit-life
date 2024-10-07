@@ -529,13 +529,16 @@
         text-decoration: none;
         font-size: 18px;
         border-radius: 25px;
+        border: #ffffff solid 1px;
         font-weight: bold;
         transition: background-color 0.3s ease;
     }
 
     .cadastro-btn .btn:hover{
-        background-color: #FAFAFA;
-        color: #EFF8FB;
+        background-color: #ffffff;
+        color: #000000;
+        border: gray solid 1px;
+
     }
   
     .links {
@@ -593,13 +596,15 @@
         text-decoration: none;
         font-size: 18px;
         border-radius: 25px;
+        border: #ff6600 solid 1px;
         font-weight: bold;
         transition: background-color 0.3s ease;
     }
     
     .btn-contato:hover {
-        background-color: #FAFAFA;
-        color: #ff6600;
+        background-color: #ff6600;
+        color: #000000;
+        border: gray solid 1px;
     }
 
 /*Final estilos Quem somos*/

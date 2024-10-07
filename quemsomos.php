@@ -84,7 +84,7 @@
             <li><a href="https://www.twitter.com/fitlife" target="_blank">Twitter</a></li>
             <li><a href="https://www.instagram.com/fitlife" target="_blank">Instagram</a></li>
         </ul>
-        <a href="contato.html" class="btn-contato">Visite nossa página de Contato</a>
+        <a href="contato.php" class="btn-contato">Visite nossa página de Contato</a>
     </div>
     
 
