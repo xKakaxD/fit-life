@@ -1,11 +1,3 @@
-<?php
-if (isset($_SESSION['logado'])) {
-    echo "Bem-vindo, " . $_SESSION['nome_usuario']; // Exibe o nome do usuário logado
-} else {
-    echo "<a href='login-cadastro.php'>Login</a>";
-}
-?>
-
 <div class="background-menu" name="background-menu">
     <div class="container-header" name="container-header">
         <nav>

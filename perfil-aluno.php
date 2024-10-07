@@ -21,20 +21,20 @@ if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
     </header>
 
     <main>
-        <div class="perfil-aluno">
-            <div class="abas">
+        <div class="menu-logado">
+            <div class="abas" name="Cliente">
                 <ul>
+                    <li>Bem-vindo, <?php echo $_SESSION['nome_usuario']; ?>!</li>
                     <li><a href="#informacoes-aluno" class="aba-selected">Informações do Aluno</a></li>
                     <li><a href="#localizar-pt-academias">Localizar Personal Trainers e Academias</a></li>
                     <li><a href="#minhas-aulas-aulas-marcadas">Minhas Aulas e Aulas Marcadas</a></li>
                     <li><a href="#termos-de-uso">Termos de Uso</a></li>
-                    <li><a href="#sair">Sair da Tela de Perfil</a></li>
+                    <li><a href="./_dao/Logout.php">Realizar Logout</a></li>
                 </ul>
             </div>
-        </div>
 
-        <div class="conteudo-abas">
-            <div id="informacoes-aluno">
+            <div class="conteudo-abas" name="Cliente">
+            <div id="informacoes-aluno" style='display: block;'>
                 <h2>Informações do Aluno</h2>
                 <form>
                     <label for="nome">Nome:</label>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
                 </form>
             </div>
 
-            <div id="localizar-pt-academias">
+            <div id="localizar-pt-academias" name="Cliente">
                 <h2>Localizar Personal Trainers e Academias</h2>
                 <form>
                     <label for="localizacao">Localização:</label>
@@ -67,7 +67,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
                     </ul>
                 </div>
             </div>
-            <div id="minhas-aulas-aulas-marcadas">
+            <div id="minhas-aulas-aulas-marcadas" name="Cliente">
                 <h2>Minhas aulas e Aulas marcadas</h2>
                 <div class="minhas-aulas">
                     <h3>Minhas aulas:</h3>
@@ -84,16 +84,19 @@ if (!isset($_SESSION['logado']) || $_SESSION['tipo_usuario'] !== 'Cliente') {
                     </ul>
                     </div>
                 </div>
-                <div id="termos-de-uso">
+                <div id="termos-de-uso" name="Cliente">
                     <!-- Conteúdo da aba Termos de Uso -->
                     <h2>Termos de Uso</h2>
                     <p>Termos de uso da plataforma...</p>
                 </div>
-                <div id="sair">
+                <div id="sair" name="geral">
                     <!-- Conteúdo da aba Sair da Tela de Perfil -->
                 </div>
             </div>
         </div>
+        </div>
+
+        
 
         <script>
             document.querySelectorAll('.abas a').forEach(function(aba) {

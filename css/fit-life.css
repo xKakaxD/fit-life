@@ -1142,11 +1142,13 @@
     }
     
     .abas {
-        width: 20%;
+        min-width: 20%;
+        max-width: auto;
         background-color: #f0f0f0;
         padding: 20px;
         border-right: 1px solid #ccc;
         height: 100vh;
+        margin-bottom: 4px;
     }
     
     .abas ul {
@@ -1169,9 +1171,10 @@
     }
     
     .abas .aba-selected {
-        background-color: transparent;
+        background-color: #cfcfcf;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 4px;
+        border: gray solid 0.5px;
     }
     
     .conteudo-abas {
@@ -1202,7 +1205,6 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    margin-top: 40px;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
