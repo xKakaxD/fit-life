@@ -17,8 +17,8 @@ if (isset($_SESSION['erro_login'])) {
 </head>
 <body>
 
-    <header>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html" ?>
+    <header> <!--Para os componentes que ficam dentro da pasta componentes no projeto o caminho deve ser pego dessa forma e alterar o arquivo-->
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header.html" ?> <!--/xampp/htdocs/FITLIFE/fit-life/componentes/..-->
     </header>
     <main>
         <div class="container-co">
@@ -78,7 +78,7 @@ if (isset($_SESSION['erro_login'])) {
                 </ul>
             </div><!-- SOCIAL-MIDIA -->
             <p class="description description-second">Conectar-se com seu email</p>
-            <form class="form" action="_dao/ProcessaLogin.php" method="POST">
+            <form class="form" action="_dao/ProcessaLogin.php" method="POST"> <!--Provavelmente estará o caminho correto, se não possível alteração de caminho para a pasta _dao-->
                 <label class="label-input icon-modify" for="email">
                     <i class="fas fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email" required>
@@ -101,7 +101,7 @@ if (isset($_SESSION['erro_login'])) {
         <script src="js/app.js"></script>
     </main>  
     <footer>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
 
 </body>

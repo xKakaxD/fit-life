@@ -1,7 +1,7 @@
 <?php
 session_start(); // Inicia a sessão
-require_once '/xampp/htdocs/FreeLancer/FITLIFE/_dao/UsuarioDAO.php'; // Inclua seu DAO de usuário
-require_once '/xampp/htdocs/FreeLancer/FITLIFE/_dao/DataBase.php';
+require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/UsuarioDAO.php'; // Inclua seu DAO de usuário
+require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/DataBase.php'; //acrescentei somente "/fit-life" após "/FITLIFE" e removi a pasta fora do contexto "/Freelancer"
 
 $database = new Database();
 $conexao = $database->getConection();

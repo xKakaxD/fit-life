@@ -16,19 +16,19 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] != true) {
 </head>
 <body>
 
-    <header>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header-logado.php"?>
+    <header> <!--Para os componentes que ficam dentro da pasta componentes no projeto o caminho deve ser pego dessa forma e alterar o arquivo-->
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header-logado.php" ?> <!--/xampp/htdocs/FITLIFE/fit-life/componentes/..-->
     </header>
 
     <main>
         <div class="conteudo-logado">
             <div class="menu-logado">
-                <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/sidebar-menu.php"?>
+                <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/sidebar-menu.php"?><!--Remove o "/Freelancer" e adiciona "/fit-life"-->
 
                 
             </div>
             <div class="conteudo-abas">
-                <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/conteudo-abas.php" ?>
+                <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/conteudo-abas.php" ?><!--Remove o "/Freelancer" e adiciona "/fit-life"-->
             </div>
         </div>
 
@@ -52,5 +52,5 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] != true) {
     </main>
 
     <footer>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
