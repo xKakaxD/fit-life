@@ -4,8 +4,8 @@ CHANGE tipo_usuario tipo_usuario ENUM('Admin', 'Treinador', 'Cliente');
 
  --fazer o insert para a tabela usuarios
 INSERT INTO USUARIOS (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario)
-VALUE ('Kaká D Moro', 'ti.demoro@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5f02ef3f42fb61bc2c60ed7ce14d', 'M', '1999-10-08', 'Brasileiro', 'R Dr Cassiano','Cliente'),
-('Kaká D Moro', 'xkakaxd@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5f02ef3f42fb61bc2c60ed7ce14d', 'M', '1999-10-08', 'Brasileiro', 'R Dr Cassiano','Treinador'),
+VALUE ('K D Moro', 'ti.demoro@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5f02ef3f42fb61bc2c60ed7ce14d', 'M', '1999-10-08', 'Brasileiro', 'R Dr Cassiano','Cliente'),
+('Kaká De Moro', 'xkakaxd@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5f02ef3f42fb61bc2c60ed7ce14d', 'M', '1999-10-08', 'Brasileiro', 'R Dr Cassiano','Treinador'),
 ('Sarah', 'sarah@gmail.com', '55A5E9E78207B4DF8699D60886FA070079463547B095D1A05BC719BB4E6CD251', 'F', '2001-07-02', 'Brasileiro', 'R Servillo De Moro','Cliente')
 ;
 
