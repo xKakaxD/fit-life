@@ -1168,9 +1168,10 @@
     
     .abas a:hover {
         color: #23527c;
+        cursor: pointer;
     }
     
-    .abas .aba-selected {
+    .abas .active {
         background-color: #cfcfcf;
         padding: 10px;
         border-radius: 4px;

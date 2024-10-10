@@ -5,7 +5,7 @@
         <li><a class="sidebar-btn" data-target="#localizar-personal-academia">Localizar Personal Trainers e Academias</a></li>
         <li><a class="sidebar-btn" data-target="#treinos">Minhas Aulas e Aulas Marcadas</a></li>
         <li><a class="sidebar-btn" data-target="#termos">Termos de Uso</a></li>
-        <li><a class="sidebar-btn" href="/FITLIFE/fit-life/_dao/Logout.php">Realizar Logout</a></li>
+        <li><a class="sidebar-btn" href="/FITLIFE/fit-life/_dao/Logout.php">Realizar Logout</a></li> <!--Pode precisar de correção-->
     </ul>
 </div>
 <div class="abas" name="Treinador" style="display: none;">
@@ -15,6 +15,6 @@
         <li><a class="sidebar-btn" data-target="#progresso-alunos">Progressos Alunos</a></li>
         <li><a class="sidebar-btn" data-target="#aulas-agendadas">Aulas Marcadas</a></li>
         <li><a class="sidebar-btn" data-target="#termos">Termos de Uso</a></li>
-        <li><a class="sidebar-btn" href="/_dao/Logout.php">Realizar Logout</a></li>
+        <li><a class="sidebar-btn" href="/FITLIFE/fit-life/_dao/Logout.php">Realizar Logout</a></li> <!--Pode precisar de correção-->
     </ul>
 </div>
