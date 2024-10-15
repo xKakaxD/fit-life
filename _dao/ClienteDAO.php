@@ -17,7 +17,7 @@ class ClienteDAO{
     }
 
     public function inserir($cliente) {
-        $sql = "INSERT INTO Cliente (id, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
+        $sql = "INSERT INTO Clientes (id, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "idddsss", 
@@ -33,7 +33,7 @@ class ClienteDAO{
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM Cliente WHERE id = ?";
+        $sql = "SELECT * FROM Clientes WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -42,7 +42,7 @@ class ClienteDAO{
     }
 
     public function atualizar($cliente) {
-        $sql = "UPDATE Cliente SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id = ?";
+        $sql = "UPDATE Clientes SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "ddssssi", 
             $cliente->getPeso(), 
@@ -57,7 +57,7 @@ class ClienteDAO{
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM Cliente WHERE id = ?";
+        $sql = "DELETE FROM Clientes WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         return mysqli_stmt_execute($stmt);

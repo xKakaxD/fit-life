@@ -7,5 +7,5 @@ if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != true) {
         exit;
     }
 }
-
+//pode se colocar mais validações tipo se o usuario tem um tipo definido, por exemplo caso não redirecionar sempre para a página que faça essa definição
 ?>
