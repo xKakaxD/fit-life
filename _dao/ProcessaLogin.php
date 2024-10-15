@@ -22,8 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario']; // Admin, Treinador, Cliente
     
         // Redireciona todos os usuários para perfil-management.php
-        header("Location: ../perfil-management.php");
-        exit;
+        if ($_SESSION['tipo_usuario'] == 'Cliente' || $_SESSION['tipo_usuario'] == 'Treinador'){
+            header("Location: ../perfil-management.php");
+            exit;
+        } elseif($_SESSION['tipo_usuario'] == 'Admin'){
+            header("Location: ../cadastrar-academia.php");
+            exit;
+        } 
     } else {
         // Falha no login
         $_SESSION['erro_login'] = "Email ou senha incorretos";
