@@ -9,11 +9,14 @@ VALUE ('K D Moro', 'ti.demoro@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5
 ('Sarah', 'sarah@gmail.com', '55A5E9E78207B4DF8699D60886FA070079463547B095D1A05BC719BB4E6CD251', 'F', '2001-07-02', 'Brasileiro', 'R Servillo De Moro','Cliente')
 ;
 
---Pode copiar esse insert ao invés do de cima,  retirar os "--" para funcionar a senha está definida como: senha123
+--Pode copiar esse insert ao invés do de cima,  retirar os comentários "--" para funcionar a senha está definida como: senha123
 --INSERT INTO USUARIOS (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario)
 --VALUE
 --('Sarah G', 'sarahTrainer@gmail.com', '55A5E9E78207B4DF8699D60886FA070079463547B095D1A05BC719BB4E6CD251', 'F', '2001-07-02', 'Brasileiro', 'R Servillo De Moro','Treinador'),
 --('Sarah', 'sarah@gmail.com', '55A5E9E78207B4DF8699D60886FA070079463547B095D1A05BC719BB4E6CD251', 'F', '2001-07-02', 'Brasileiro', 'R Servillo De Moro','Cliente')
 --;
 
-
+INSERT INTO USUARIOS (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario)
+VALUE
+('Vitoria De Moro', 'V@gmail.com', 'ea955525832b0f4680dad7efd9183140381f5f02ef3f42fb61bc2c60ed7ce14d', 'F', '2001-02-15', 'Brasileiro', 'R Dr Cassiano','Admin')
+;   
