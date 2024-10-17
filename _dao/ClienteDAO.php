@@ -16,18 +16,18 @@ class ClienteDAO{
         $this->conexao->close();
     }
 
-    public function inserir($cliente) {
+    public function cadastrarCliente($cliente) {
         $sql = "INSERT INTO Clientes (id, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "idddsss", 
-            $cliente->setId(), 
-            $cliente->setPeso(), 
-            $cliente->setAltura(), 
-            $cliente->setTempoTreino(), 
-            $cliente->setLesao(), 
-            $cliente->setProblemaSaude(), 
-            $cliente->setHabitos()
+            $usuarioId, 
+            $peso, 
+            $altura, 
+            $tempoTreino, 
+            $lesao, 
+            $problemaSaude, 
+            $habitos
         );
         return mysqli_stmt_execute($stmt);
     }

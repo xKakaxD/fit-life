@@ -16,7 +16,7 @@ class UsuarioDAO {
         $this->conexao->close();
     }
 
-    public function inserir(Usuario $usuario) {
+    public function cadastrarUsuario(Usuario $usuario) {
         $sql = "INSERT INTO Usuarios (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario, foto) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
@@ -31,7 +31,10 @@ class UsuarioDAO {
             $usuario->getTipoUsuario(), 
             $usuario->getFoto()
         );
-        return mysqli_stmt_execute($stmt);
+        if (mysqli_stmt_execute($stmt)) {
+            return mysqli_insert_id($this->conexao); // Retorna o ID do usuário recém-criado
+        }
+        return false;
     }
 
     public function buscarPorId($id) {

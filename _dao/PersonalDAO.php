@@ -1,4 +1,6 @@
 <?php 
+require_once 'Personal.php';
+require_once 'Database.php';
 
 class PersonalTrainerDAO {
     private $conexao;
@@ -13,16 +15,16 @@ class PersonalTrainerDAO {
         $this->conexao->close();
     }
 
-    public function inserir($personal) {
+    public function cadastrarTreinador($personal) {
         $sql = "INSERT INTO Personal_Trainers (id, cref, especialidade, tmp_area, descricao) 
                 VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "issis", 
-            $personal->setId(), 
-            $personal->setCref(), 
-            $personal->setEspecialidade(), 
-            $personal->setTempoNaArea(), 
-            $personal->setDescricao()
+            $usuarioId, 
+            $cref, 
+            $especialidade, 
+            $tempoArea, 
+            $descricao
         );
         return mysqli_stmt_execute($stmt);
     }

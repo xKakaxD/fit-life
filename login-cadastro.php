@@ -48,7 +48,7 @@ if (isset($_SESSION['erro_login'])) {
                 <p class="description description-second">Registre-se com seu e-mail</p>                   
                     
                     </label>
-                    <button class="btn-login-cadastro btn-second">Registre-se</button>
+                    <button class="btn-login-cadastro btn-second"><a href="cadastrar-usuario.php" >Registre-se</a></button>
                 </form>
                 </div>
             </div>

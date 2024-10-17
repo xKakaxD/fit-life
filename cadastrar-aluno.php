@@ -1,21 +1,42 @@
+<?php
+session_start();
+require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/ClienteDAO.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuarioId = $_POST['usuarioId'];
+    $peso = $_POST['peso'];
+    $altura = $_POST['altura'];
+    $tempoTreino = $_POST['tempo_treino'];
+    $lesao = $_POST['lesao'];
+    $problemaSaude = $_POST['problema_saude'];
+    $habitos = $_POST['habitos'];
+
+    $clienteDAO = new ClienteDAO();
+    $clienteDAO->cadastrarCliente($usuarioId, $peso, $altura, $tempoTreino, $lesao, $problemaSaude, $habitos);
+
+    header("Location: perfil-management.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fit-life.css">
-    <title> Cadastro Personal Trainer </title>
+    <title> Cadastro Aluno </title>
 </head>
 <body>
 
     <header> <!--Para os componentes que ficam dentro da pasta componentes no projeto o caminho deve ser pego dessa forma e alterar o arquivo-->
         <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header.html" ?> <!--/xampp/htdocs/FITLIFE/fit-life/componentes/..-->
     </header>
-
+    
     <main>
         <div class="form-container">
-            <form id="ptrainer-cadastro">
-                <h2>Cadastro do Personal Trainer</h2>
+            <form id="aluno-cadastro">
+                <h2>Cadastro do Aluno</h2>
 
                 <!-- Nome e Sobrenome -->
                 <div class="row">
@@ -42,8 +63,8 @@
                     <div class="form-group full-width">
                         <label for="endereco">Endereço</label>
                         <input type="text" id="endereco" name="endereco" required>
-            </div>
-        </div>
+                    </div>
+                </div>
 
                 <!-- Nacionalidade e Sexo -->
                 <div class="row">
@@ -76,38 +97,75 @@
                 <!-- Outras informações -->
                 <div class="row">
                     <div class="form-group full-width">
-                        <label for="tempo-treino">Há Quanto Tempo Atua na Área</label>
+                        <label for="tempo-treino">Há Quanto Tempo Treina</label>
                         <input type="text" id="tempo-treino" name="tempo-treino" required>
                     </div>
                 </div>
 
-                <!--CREF e Especialidade -->
                 <div class="row">
-                    <div class="form-group">
-                        <label for="cref">CREF</label>
-                        <input type="number" id="cref" name="cref" step="0.1" required>
+                    <div class="form-group full-width">
+                        <label for="lesao">Possui Lesão</label>
+                        <select id="lesao" name="lesao" required onchange="toggleLesaoInput()">
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="especialidade">Especialidade</label>
-                        <input type="text" id="especialidade" name="especialidade" step="0.1" required>
+                </div>
+        
+                <!-- Descrição da Lesão (inicialmente oculta) -->
+                <div class="row" id="lesao-descricao" style="display: none;">
+                    <div class="form-group full-width">
+                        <label for="descricao-lesao">Qual lesão?</label>
+                        <textarea id="descricao-lesao" name="descricao-lesao" rows="4"></textarea>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="form-group full-width">
+                        <label for="liberacao-medica">Liberação Médica (anexar documento)</label>
+                        <input type="file" id="liberacao-medica" name="liberacao-medica" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
                     </div>
                 </div>
 
-                <!--Descrição -->
                 <div class="row">
                     <div class="form-group full-width">
-                        <label for="descricao">Monte sua descrição</label>
-                        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                        <label for="habitos">Hábitos</label>
+                        <textarea id="habitos" name="habitos" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group full-width">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required>
                     </div>
                 </div>
 
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
+
+
+        <script>
+            function toggleLesaoInput() {
+                var lesaoSelect = document.getElementById('lesao');
+                var descricaoDiv = document.getElementById('lesao-descricao');
+                
+                if (lesaoSelect.value === 'sim') {
+                    descricaoDiv.style.display = 'block';
+                } else {
+                    descricaoDiv.style.display = 'none';
+                }
+            }
+        </script>
     </main>
 
     <footer>
         <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
+
 </body>
 </html>
+
+      
