@@ -16,8 +16,8 @@ class UsuarioDAO {
         $this->conexao->close();
     }
 
-    public function inserir(Usuario $usuario) {
-        $sql = "INSERT INTO Usuario (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario, foto) 
+    public function cadastrarUsuario(Usuario $usuario) {
+        $sql = "INSERT INTO Usuarios (nome, email, senha, sexo, dt_nascimento, nacionalidade, endereco, tipo_usuario, foto) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "sssssssss", 
@@ -31,11 +31,14 @@ class UsuarioDAO {
             $usuario->getTipoUsuario(), 
             $usuario->getFoto()
         );
-        return mysqli_stmt_execute($stmt);
+        if (mysqli_stmt_execute($stmt)) {
+            return mysqli_insert_id($this->conexao); // Retorna o ID do usuário recém-criado
+        }
+        return false;
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM Usuario WHERE id = ?";
+        $sql = "SELECT * FROM Usuarios WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -54,7 +57,7 @@ class UsuarioDAO {
     
 
     public function atualizar($usuario) {
-        $sql = "UPDATE Usuario SET nome = ?, email = ?, senha = ?, sexo = ?, dt_nascimento = ?, nacionalidade = ?, endereco = ?, tipo_usuario = ?, foto = ? WHERE id = ?";
+        $sql = "UPDATE Usuarios SET nome = ?, email = ?, senha = ?, sexo = ?, dt_nascimento = ?, nacionalidade = ?, endereco = ?, tipo_usuario = ?, foto = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "sssssssssi", 
         $usuario->getNome(),        //Getters são usados dentro do método update para acessar esses valores e salvá-los no banco
@@ -72,7 +75,7 @@ class UsuarioDAO {
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM Usuario WHERE id = ?";
+        $sql = "DELETE FROM Usuarios WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         return mysqli_stmt_execute($stmt);

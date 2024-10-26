@@ -1,3 +1,24 @@
+<?php
+session_start();
+require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/ClienteDAO.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuarioId = $_POST['usuarioId'];
+    $peso = $_POST['peso'];
+    $altura = $_POST['altura'];
+    $tempoTreino = $_POST['tempo_treino'];
+    $lesao = $_POST['lesao'];
+    $problemaSaude = $_POST['problema_saude'];
+    $habitos = $_POST['habitos'];
+
+    $clienteDAO = new ClienteDAO();
+    $clienteDAO->cadastrarCliente($usuarioId, $peso, $altura, $tempoTreino, $lesao, $problemaSaude, $habitos);
+
+    header("Location: perfil-management.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,8 +29,8 @@
 </head>
 <body>
 
-    <header>
-    <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html"?>
+    <header> <!--Para os componentes que ficam dentro da pasta componentes no projeto o caminho deve ser pego dessa forma e alterar o arquivo-->
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header.html" ?> <!--/xampp/htdocs/FITLIFE/fit-life/componentes/..-->
     </header>
     
     <main>
@@ -141,7 +162,7 @@
     </main>
 
     <footer>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
 
 </body>

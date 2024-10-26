@@ -7,8 +7,8 @@
     <title> FITLIFE - contato </title>
 </head>
 <body>
-    <header>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/header.html"?>
+    <header> <!--Para os componentes que ficam dentro da pasta componentes no projeto o caminho deve ser pego dessa forma e alterar o arquivo-->
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header.html" ?> <!--/xampp/htdocs/FITLIFE/fit-life/componentes/..-->
     </header>
     <main>
         <section class="contato">
@@ -99,7 +99,7 @@
         </section>    
     </main>
     <footer>
-        <?php include_once "/xampp/htdocs/FreeLancer/FITLIFE/componentes/footer.html"?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
 </body>
 </html>
