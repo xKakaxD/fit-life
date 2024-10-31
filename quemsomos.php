@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+// Tempo de expiração da sessão em segundos
+$tempoExpiracao = 1800; // 30 minutos
+
+// Verificar se a sessão está ativa e se passou do tempo de expiração
+if (isset($_SESSION['ultima_atividade']) && (time() - $_SESSION['ultima_atividade'] > $tempoExpiracao)) {
+    // Se a última atividade foi há mais de 30 minutos, destrói a sessão e redireciona para o login com um aviso
+    session_unset(); // Remove as variáveis de sessão
+    session_destroy(); // Destrói a sessão
+    header("Location: login-cadastro.php?session_expired=1");
+    exit;
+}
+
+// Atualiza o tempo de última atividade para o momento atual se o usuário estiver logado
+if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+    $_SESSION['ultima_atividade'] = time();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
