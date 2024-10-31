@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../perfil-management.php");
             exit;
         } elseif($_SESSION['tipo_usuario'] == 'Admin'){
-            header("Location: ../cadastrar-academia.php");
+            header("Location: ../gerir-academias.php");
             exit;
         } 
     } else {
