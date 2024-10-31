@@ -9,6 +9,17 @@ class Academia {
     private $latitude;
     private $longitude;
 
+
+    public function __construct($nome, $rua, $bairro, $numero, $cep, $latitude, $longitude) {
+        $this->nome = $nome;
+        $this->rua = $rua;
+        $this->bairro = $bairro;
+        $this->numero = $numero;
+        $this->cep = $cep;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+    }
+
     // Getters e setters
     public function getId() { 
         return $this->id; 
