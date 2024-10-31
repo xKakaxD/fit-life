@@ -10,9 +10,6 @@
                 <li> <a href="contato.php">Contato</a></li>
                 <li> <a href="./_dao/Logout.php"> <img src="img/icon-pessoa.png" alt="conectar" class="icon-conectar"></a></li>  
             </ul>
-            <div class="menu-icon">
-                <img src="img/menu-icon.png" alt="icon menu">
-            </div>
         </nav>
     </div>
 </div>
