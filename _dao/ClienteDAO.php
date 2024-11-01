@@ -2,7 +2,7 @@
 require_once 'Cliente.php';
 require_once 'Database.php';
 
-class ClienteDAO{
+class ClienteDAO {
 
     private $conexao;
 
@@ -11,16 +11,28 @@ class ClienteDAO{
         $this->conexao = $db->getConection();
     }
 
-    public function __destruct()
-    {
+    public function __destruct() {
         $this->conexao->close();
     }
 
     public function cadastrarCliente($cliente) {
-        $sql = "INSERT INTO Clientes (id, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
+        // SQL para inserir um cliente
+        $sql = "INSERT INTO Clientes (id_usuario, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
+
         $stmt = mysqli_prepare($this->conexao, $sql);
-        mysqli_stmt_bind_param($stmt, "idddsss", 
+
+        // Pegando os dados do cliente usando os getters
+        $usuarioId = $cliente->getId();
+        $peso = $cliente->getPeso();
+        $altura = $cliente->getAltura();
+        $tempoTreino = $cliente->getTempoTreino();
+        $lesao = $cliente->getLesao();
+        $problemaSaude = $cliente->getProblemaSaude();
+        $habitos = $cliente->getHabitos();
+
+        // Corrigido o tipo dos parâmetros
+        mysqli_stmt_bind_param($stmt, "idsssss", 
             $usuarioId, 
             $peso, 
             $altura, 
@@ -29,11 +41,13 @@ class ClienteDAO{
             $problemaSaude, 
             $habitos
         );
+
         return mysqli_stmt_execute($stmt);
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM Clientes WHERE id = ?";
+        // SQL para buscar um cliente pelo ID
+        $sql = "SELECT * FROM Clientes WHERE id_usuario = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -42,22 +56,36 @@ class ClienteDAO{
     }
 
     public function atualizar($cliente) {
-        $sql = "UPDATE Clientes SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id = ?";
+        // SQL para atualizar os dados de um cliente
+        $sql = "UPDATE Clientes SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id_usuario = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
-        mysqli_stmt_bind_param($stmt, "ddssssi", 
-            $cliente->getPeso(), 
-            $cliente->getAltura(), 
-            $cliente->getTempoTreino(), 
-            $cliente->getLesao(), 
-            $cliente->getProblemaSaude(), 
-            $cliente->getHabitos(),
-            $cliente->getId()
+
+        // Pegando os dados do cliente usando os getters
+        $peso = $cliente->getPeso();
+        $altura = $cliente->getAltura();
+        $tempoTreino = $cliente->getTempoTreino();
+        $lesao = $cliente->getLesao();
+        $problemaSaude = $cliente->getProblemaSaude();
+        $habitos = $cliente->getHabitos();
+        $usuarioId = $cliente->getId();
+
+        // Corrigido o tipo dos parâmetros
+        mysqli_stmt_bind_param($stmt, "sssssi", 
+            $peso, 
+            $altura, 
+            $tempoTreino, 
+            $lesao, 
+            $problemaSaude, 
+            $habitos,
+            $usuarioId
         );
+
         return mysqli_stmt_execute($stmt);
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM Clientes WHERE id = ?";
+        // SQL para deletar um cliente pelo ID
+        $sql = "DELETE FROM Clientes WHERE id_usuario = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         return mysqli_stmt_execute($stmt);

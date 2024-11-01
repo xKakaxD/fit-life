@@ -1,7 +1,7 @@
 <?php 
 
 class Cliente {
-    private $id;
+    private $usuarioId;
     private $peso;
     private $altura;
     private $tmp_treino;
@@ -9,13 +9,19 @@ class Cliente {
     private $pr_saude; //problema de saude
     private $habitos;
 
-    // Getters e Setters para cada atributo
-    public function getId() {
-        return $this->id;
+    public function __construct($usuarioId, $peso, $altura, $tmp_treino, $lesao, $pr_saude, $habitos) {
+        $this->usuarioId = $usuarioId;
+        $this->peso = $peso;
+        $this->altura = $altura;
+        $this->tmp_treino = $tmp_treino;
+        $this->lesao = $lesao;
+        $this->pr_saude = $pr_saude;
+        $this->habitos = $habitos;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    // Getters e Setters para cada atributo
+    public function getId() {
+        return $this->usuarioId;
     }
 
     public function getPeso() {
@@ -54,7 +60,7 @@ class Cliente {
         return $this->pr_saude;
     }
 
-    public function setProblemaSause($pr_saude){
+    public function setProblemaSaude($pr_saude){
         $this->pr_saude = $pr_saude;
     }
 

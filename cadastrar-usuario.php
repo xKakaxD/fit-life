@@ -4,27 +4,6 @@ session_start();
 require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/UsuarioDAO.php';
 require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/DataBase.php';
 
-// Tempo de expiração da sessão em segundos
-$tempoExpiracao = 60; // 1800 = 30 minutos 
-
-// Verificar se a sessão está ativa e se passou do tempo de expiração
-if (isset($_SESSION['ultima_atividade']) && (time() - $_SESSION['ultima_atividade'] > $tempoExpiracao)) {
-    // Se a última atividade foi há mais de 30 minutos, destrói a sessão e redireciona para o login
-    session_unset(); // Remove as variáveis de sessão
-    session_destroy(); // Destrói a sessão
-    header("Location: login-cadastro.php?session_expired=1");
-    exit;
-}
-
-// Atualiza o tempo de última atividade para o momento atual
-$_SESSION['ultima_atividade'] = time();
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true || $_SESSION['tipo_usuario'] !== 'Cliente') {
-    header("Location: login-cadastro.php");
-    exit;
-}
-
 $mensagem_erro = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,12 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuarioId = $usuarioDAO->cadastrarUsuario($usuario);
 
     if ($usuarioId) {
-        // Redireciona para a tela correspondente
-        if ($tipoUsuario === 'Cliente') {
-            header("Location: cadastrar-aluno.php?usuarioId=$usuarioId");
-        } elseif ($tipoUsuario === 'Treinador') {
-            header("Location: cadastrar-trainer.php?usuarioId=$usuarioId");
-        }
+        // Login automático do usuário após o cadastro bem-sucedido
+        $_SESSION['logado'] = true;
+        $_SESSION['id_usuario'] = $usuarioId;
+        $_SESSION['nome_usuario'] = $usuario->getNome();
+        $_SESSION['tipo_usuario'] = $usuario->getTipoUsuario();
+        $_SESSION['email'] = $usuario->getEmail();
+
+        // Redireciona para o perfil-management.php após o cadastro
+        header("Location: perfil-management.php");
         exit;
     } else {
         $mensagem_erro = "Erro ao cadastrar usuário. Tente novamente.";
@@ -65,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário - FITLIFE</title>
     <link rel="stylesheet" href="css/fit-life.css">
-    <script src="js/sessao.js" defer></script> <!-- Certifique-se que o caminho está correto -->
+    <script src="js/sessao.js" defer></script>
 </head>
 <body>
     <header>
@@ -74,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <div class="form-usuario-container">
             <h2>Cadastro de Usuário</h2>
-                <?php if (!empty($mensagem_erro)) { echo "<p style='color:red;'>$mensagem_erro</p>"; } ?>
+            <?php if (!empty($mensagem_erro)) { echo "<p style='color:red;'>$mensagem_erro</p>"; } ?>
             <form method="POST" action="cadastrar-usuario.php">
                 <label>Nome:</label>
                 <input type="text" name="nome" required>

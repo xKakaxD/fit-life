@@ -48,7 +48,7 @@ if (isset($_SESSION['erro_login'])) {
                 <p class="description description-second">Registre-se com seu e-mail</p>                   
                     
                     </label>
-                    <button class="btn-login-cadastro btn-second"><a href="cadastrar-usuario.php" >Registre-se</a></button>
+                    <button id="register-button" class="btn-login-cadastro btn-second"><a href="cadastrar-usuario.php" >Registre-se</a></button>
                 </form>
                 </div>
             </div>
@@ -80,11 +80,9 @@ if (isset($_SESSION['erro_login'])) {
             <p class="description description-second">Conectar-se com seu email</p>
             <form class="form" action="_dao/ProcessaLogin.php" method="POST"> <!--Provavelmente estará o caminho correto, se não possível alteração de caminho para a pasta _dao-->
                 <label class="label-input icon-modify" for="email">
-                    <i class="fas fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email" required>
                 </label>
                 <label class="label-input icon-modify" for="senha">
-                    <i class="fas fa-lock"></i>
                     <input type="password" name="senha" placeholder="Senha" required>
                 </label>
                 <a class="password" href="#">Esqueceu a senha?</a>

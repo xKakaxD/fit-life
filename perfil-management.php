@@ -55,7 +55,13 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const tipoUsuario = "<?php echo $tipoUsuario; ?>";
+                // Corrigindo a obtenção do tipo de usuário para que não ocorra erro caso não esteja definido
+                const tipoUsuario = "<?php echo isset($_SESSION['tipo_usuario']) ? $_SESSION['tipo_usuario'] : ''; ?>";
+
+                if (tipoUsuario === "") {
+                    console.error("Tipo de usuário não definido.");
+                    return; // Se não houver tipo de usuário, saia do script
+                }
 
                 // Exibe apenas o sidebar correto com base no tipo de usuário
                 document.querySelectorAll('.abas').forEach(element => {
@@ -77,7 +83,11 @@
 
                         // Exibe o conteúdo associado ao botão clicado
                         const target = this.getAttribute('data-target');
-                        document.querySelector(target).style.display = 'block';
+                        if (document.querySelector(target)) {
+                            document.querySelector(target).style.display = 'block';
+                        } else {
+                            console.error("Elemento alvo não encontrado: ", target);
+                        }
                     });
                 });
 
@@ -86,9 +96,14 @@
                 if (firstButton) {
                     firstButton.classList.add('active'); // Marca o primeiro botão como ativo
                     const target = firstButton.getAttribute('data-target'); // Pega o target do botão
-                    document.querySelector(target).style.display = 'block'; // Exibe o conteúdo correto
+                    if (document.querySelector(target)) {
+                        document.querySelector(target).style.display = 'block'; // Exibe o conteúdo correto
+                    } else {
+                        console.error("Elemento alvo não encontrado: ", target);
+                    }
                 }
             });
         </script>
+
     </body>
 </html>

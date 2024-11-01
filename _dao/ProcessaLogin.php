@@ -20,15 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id_usuario'] = $usuario['id'];
         $_SESSION['nome_usuario'] = $usuario['nome'];
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario']; // Admin, Treinador, Cliente
+        $_SESSION['email'] = $usuario['email']; 
     
-        // Redireciona todos os usuários para perfil-management.php
-        if ($_SESSION['tipo_usuario'] == 'Cliente' || $_SESSION['tipo_usuario'] == 'Treinador'){
-            header("Location: ../perfil-management.php");
-            exit;
-        } elseif($_SESSION['tipo_usuario'] == 'Admin'){
-            header("Location: ../gerir-academias.php");
-            exit;
-        } 
+        // Redireciona todos os usuários para perfil-management.php após o login bem-sucedido
+        header("Location: ../perfil-management.php");
+        exit;
+
     } else {
         // Falha no login
         $_SESSION['erro_login'] = "Email ou senha incorretos";
