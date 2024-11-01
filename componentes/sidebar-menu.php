@@ -18,3 +18,10 @@
         <li><a class="sidebar-btn" href="/FITLIFE/fit-life/_dao/Logout.php">Realizar Logout</a></li> <!--Pode precisar de correção-->
     </ul>
 </div>
+<div class="abas" name="Admin" style="display: none;">
+    <ul>
+        <li>Bem-vindo, <?php echo $_SESSION['nome_usuario']; ?>!</li>
+        <li><a  class="sidebar-btn" data-target="#gerir-academias">Gerir Academias</a></li>
+        <li><a class="sidebar-btn" href="/FITLIFE/fit-life/_dao/Logout.php">Realizar Logout</a></li> <!--Pode precisar de correção-->
+    </ul>
+</div>
