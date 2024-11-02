@@ -1281,6 +1281,81 @@
     .conteudo-abas > div:target {
         display: block;
     }
+
+    .informacoes-gerais {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .informacoes-gerais label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    input, select {
+        padding: 10px;
+        width: calc(50% - 20px);
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    input[type="file"], .mudar-senha input {
+        width: 100%;
+    }
+    
+    .foto-perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .foto-perfil img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        margin-bottom: 10px;
+    }
+    
+    .mudar-senha {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    button[type="submit"] {
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #e65c00;
+    }
+    .endereco {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    
+    #mapa-aluno {
+        width: 100%;
+        height: 300px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
 /*Final dos estilos para o perfil do aluno*/
 /*Footer*/
 

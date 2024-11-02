@@ -1,9 +1,5 @@
 <?php
 session_start();
-if ($_SESSION['tipo_usuario'] !== 'Admin') {
-    header("Location: login-cadastro.php");
-    exit;
-}
 
 // Conexão com o banco de dados
 require_once '/xampp/htdocs/FITLIFE/fit-life/_dao/DataBase.php';
@@ -56,7 +52,6 @@ $academias = $academiaDAO->listarAcademias();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fit-life.css">
-    <title>Gerir Academias</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaf9M9Dq77v7rMHGzJHL6Lp_bpAYJ7_Eo&callback=initMap" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/mapa.js"></script> <!-- Arquivo JS externo para o mapa -->
@@ -168,9 +163,8 @@ $academias = $academiaDAO->listarAcademias();
 </head>
 <body>
     <header>
-        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header-logado.php"; ?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/header-logado.php"?>
     </header>
-
     <main>
         <h1>Gerir Academias</h1>
 
@@ -249,7 +243,7 @@ $academias = $academiaDAO->listarAcademias();
     </main>
 
     <footer>
-        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"; ?>
+        <?php include_once "/xampp/htdocs/FITLIFE/fit-life/componentes/footer.html"?>
     </footer>
 </body>
 </html>

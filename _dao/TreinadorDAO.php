@@ -15,7 +15,7 @@ class TreinadorDAO {
     }
 
     public function cadastrarTreinador($treinador) {
-        $sql = "INSERT INTO Treinadores (id_usuario, cref, especialidade, tmp_area, descricao) 
+        $sql = "INSERT INTO Treinadores (id, cref, especialidade, tmp_area, descricao) 
                 VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "issss",
@@ -29,7 +29,7 @@ class TreinadorDAO {
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM Treinadores WHERE id_usuario = ?";
+        $sql = "SELECT * FROM Treinadores WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -38,7 +38,7 @@ class TreinadorDAO {
 
         if ($dados) {
             return new Treinador(
-                $dados['id_usuario'],
+                $dados['id'],
                 $dados['cref'],
                 $dados['especialidade'],
                 $dados['tmp_area'],
@@ -50,7 +50,7 @@ class TreinadorDAO {
     }
 
     public function atualizar($treinador) {
-        $sql = "UPDATE Treinadores SET cref = ?, especialidade = ?, tmp_area = ?, descricao = ? WHERE id_usuario = ?";
+        $sql = "UPDATE Treinadores SET cref = ?, especialidade = ?, tmp_area = ?, descricao = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "ssssi",
             $treinador->getCref(),
@@ -63,7 +63,7 @@ class TreinadorDAO {
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM Treinadores WHERE id_usuario = ?";
+        $sql = "DELETE FROM Treinadores WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         return mysqli_stmt_execute($stmt);

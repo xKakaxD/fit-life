@@ -17,7 +17,7 @@ class ClienteDAO {
 
     public function cadastrarCliente($cliente) {
         // SQL para inserir um cliente
-        $sql = "INSERT INTO Clientes (id_usuario, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
+        $sql = "INSERT INTO Clientes (id, peso, altura, tmp_treino, lesao, pr_saude, habitos) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = mysqli_prepare($this->conexao, $sql);
@@ -47,7 +47,7 @@ class ClienteDAO {
 
     public function buscarPorId($id) {
         // SQL para buscar um cliente pelo ID
-        $sql = "SELECT * FROM Clientes WHERE id_usuario = ?";
+        $sql = "SELECT * FROM Clientes WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
@@ -57,7 +57,7 @@ class ClienteDAO {
 
     public function atualizar($cliente) {
         // SQL para atualizar os dados de um cliente
-        $sql = "UPDATE Clientes SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id_usuario = ?";
+        $sql = "UPDATE Clientes SET peso = ?, altura = ?, tmp_treino = ?, lesao = ?, pr_saude = ?, habitos = ? WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
 
         // Pegando os dados do cliente usando os getters
@@ -85,7 +85,7 @@ class ClienteDAO {
 
     public function deletar($id) {
         // SQL para deletar um cliente pelo ID
-        $sql = "DELETE FROM Clientes WHERE id_usuario = ?";
+        $sql = "DELETE FROM Clientes WHERE id = ?";
         $stmt = mysqli_prepare($this->conexao, $sql);
         mysqli_stmt_bind_param($stmt, "i", $id);
         return mysqli_stmt_execute($stmt);
